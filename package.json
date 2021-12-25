@@ -2,7 +2,7 @@
   "name": "ts-money",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "author": "",
+  "main": "dist/index.js",
+  "author": "Ameen Sayegh",
   "license": "mit"
 }
