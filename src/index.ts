@@ -124,4 +124,11 @@ export class Money {
     const v = BigInt(Math.round(value * 100));
     return this._constructor(v);
   }
+
+  format(): string {
+    let s = this.to_str().split(".");
+    s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if(s[0][0] !== '-')s[0] = " " + s[0];
+    return s.join(".");
+  }
 }

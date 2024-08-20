@@ -28,4 +28,5 @@ export declare class Money {
     static from_str_or_error(value: string): Money;
     static from_str_or_zero(value: string): Money;
     static from_num(value: number): Money;
+    format(): string;
 }

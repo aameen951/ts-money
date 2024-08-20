@@ -1,10 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Money = void 0;
 function abs(v) {
     return v < 0 ? -v : v;
 }
 function _round_div10(v) {
     return (v + (v > 0n ? 5n : -5n)) / 10n;
 }
-export class Money {
+class Money {
     constructor() {
         this._v = 0n;
     }
@@ -117,5 +120,13 @@ export class Money {
         const v = BigInt(Math.round(value * 100));
         return this._constructor(v);
     }
+    format() {
+        let s = this.to_str().split(".");
+        s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if (s[0][0] !== '-')
+            s[0] = " " + s[0];
+        return s.join(".");
+    }
 }
+exports.Money = Money;
 //# sourceMappingURL=index.js.map
