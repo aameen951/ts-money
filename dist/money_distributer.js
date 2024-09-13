@@ -3,6 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MoneyDistributor = void 0;
 const index_1 = require("./index");
 class MoneyDistributor {
+    available_amount;
+    available_shares;
     constructor(total, shares) {
         this.available_amount = total;
         this.available_shares = index_1.Money.from_num(shares);

@@ -24,7 +24,7 @@ export declare class Money {
     static get zero(): Money;
     static get v100(): Money;
     static get v1(): Money;
-    static parse_str(value: string): Money;
+    static parse_str(value: string): Money | null;
     static from_str_or_error(value: string): Money;
     static from_str_or_zero(value: string): Money;
     static from_num(value: number): Money;

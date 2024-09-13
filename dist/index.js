@@ -8,9 +8,7 @@ function _round_div10(v) {
     return (v + (v > 0n ? 5n : -5n)) / 10n;
 }
 class Money {
-    constructor() {
-        this._v = 0n;
-    }
+    _v = 0n;
     static _constructor(value) {
         const result = new Money();
         result._v = value;
@@ -96,8 +94,9 @@ class Money {
     }
     static parse_str(value) {
         const match = value.replace(/,/g, "").match(/^\s*([+-]?)(\d*)(\.(\d+)?)?\s*$/);
-        if (match === null)
+        if (match === null) {
             return null;
+        }
         const sign = match[1] || '+';
         const int_part = sign + (match[2] || '0');
         let decimal_part = ((match[4] || '0') + "000").slice(0, 3);

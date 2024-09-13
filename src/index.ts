@@ -100,9 +100,11 @@ export class Money {
     return this._constructor(100n);
   }
 
-  static parse_str(value: string){
+  static parse_str(value: string): Money | null {
     const match = value.replace(/,/g, "").match(/^\s*([+-]?)(\d*)(\.(\d+)?)?\s*$/);
-    if(match === null)return null;
+    if(match === null) {
+      return null;
+    }
     const sign = match[1] || '+';
     const int_part = sign + (match[2] || '0');
     let decimal_part = ((match[4] || '0')+"000").slice(0,3);
