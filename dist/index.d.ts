@@ -21,6 +21,7 @@ export declare class Money {
     to_str(): string;
     to_num(): number;
     toJSON(): string;
+    copy(): Money;
     static get zero(): Money;
     static get v100(): Money;
     static get v1(): Money;

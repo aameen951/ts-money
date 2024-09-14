@@ -83,6 +83,9 @@ class Money {
     toJSON() {
         return this.to_str();
     }
+    copy() {
+        return Money._constructor(this._v);
+    }
     static get zero() {
         return this._constructor(0n);
     }
