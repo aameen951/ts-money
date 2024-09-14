@@ -104,7 +104,7 @@ export class Money {
   }
 
   static parse_str(value: string): Money | null {
-    const match = value.replace(/,/g, "").match(/^\s*([+-]?)(\d*)(\.(\d+)?)?\s*$/);
+    const match = value.replace(/,\s'،/g, "").match(/^([+-]?)(\d*)(\.(\d+)?)?$/);
     if(match === null) {
       return null;
     }

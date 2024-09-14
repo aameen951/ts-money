@@ -96,7 +96,7 @@ class Money {
         return this._constructor(100n);
     }
     static parse_str(value) {
-        const match = value.replace(/,/g, "").match(/^\s*([+-]?)(\d*)(\.(\d+)?)?\s*$/);
+        const match = value.replace(/,\s'،/g, "").match(/^([+-]?)(\d*)(\.(\d+)?)?$/);
         if (match === null) {
             return null;
         }
