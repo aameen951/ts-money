@@ -104,11 +104,13 @@ export class Money {
   }
 
   static parse_str(value: string): Money | null {
-    const match = value.replace(/,\s'،/g, "").match(/^([+-]?)(\d*)(\.(\d+)?)?$/);
+    const match = value.replace(/[,\s'،]/g, "").match(/^([+-]?)(\d*)(\.(\d+)?)?([+-]?)$/);
     if(match === null) {
       return null;
     }
-    const sign = match[1] || '+';
+    let sign = '+';
+    if(match[1] !== '')sign = match[1];
+    else if(match[5] !== '')sign = match[5];
     const int_part = sign + (match[2] || '0');
     let decimal_part = ((match[4] || '0')+"000").slice(0,3);
 
