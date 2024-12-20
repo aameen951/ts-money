@@ -17,6 +17,8 @@ class MoneyDistributor {
     }
     take(wanted_shares) {
         let wanted = index_1.Money.from_num(wanted_shares);
+        if (wanted.is_zero)
+            return index_1.Money.zero;
         if (wanted.gt(this.available_shares))
             throw new Error();
         let result = this.available_amount.mul_div(wanted, this.available_shares);
@@ -41,6 +43,8 @@ class MoneyDistributor2 {
     }
     take(wanted_shares) {
         let wanted = wanted_shares;
+        if (wanted.is_zero)
+            return index_1.Money.zero;
         if (wanted.gt(this.available_shares))
             throw new Error();
         let result = this.available_amount.mul_div(wanted, this.available_shares);

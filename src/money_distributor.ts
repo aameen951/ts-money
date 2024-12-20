@@ -18,6 +18,7 @@ export class MoneyDistributor {
 
   take(wanted_shares: number){
     let wanted = Money.from_num(wanted_shares);
+    if(wanted.is_zero) return Money.zero;
 
     if(wanted.gt(this.available_shares))throw new Error();
 
@@ -48,6 +49,7 @@ export class MoneyDistributor2 {
 
   take(wanted_shares: Money){
     let wanted = wanted_shares;
+    if(wanted.is_zero) return Money.zero;
 
     if(wanted.gt(this.available_shares))throw new Error();
 
