@@ -15,6 +15,7 @@ export declare class Money {
     lt(v: Money): boolean;
     ge(v: Money): boolean;
     le(v: Money): boolean;
+    cmp(v: Money): 0 | 1 | -1;
     get is_zero(): boolean;
     get is_positive(): boolean;
     get is_negative(): boolean;

@@ -61,6 +61,9 @@ class Money {
     le(v) {
         return this._v <= v._v;
     }
+    cmp(v) {
+        return this._v < v._v ? -1 : this._v > v._v ? 1 : 0;
+    }
     get is_zero() {
         return this._v === 0n;
     }
